@@ -1,5 +1,5 @@
 
-import { Bell, Book, Calendar, GraduationCap, Home, MessageSquare, PenSquare, Settings, Trophy, Users } from "lucide-react";
+import { Bell, Book, Brain, Calendar, GraduationCap, Home, MessageSquare, Newspaper, PenSquare, Settings, Trophy, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -33,9 +33,13 @@ const Navbar = () => {
             <Users className="h-4 w-4" />
             Mentorship
           </Link>
-          <Link to="/leaderboard" className="flex items-center gap-1 text-sm font-medium">
-            <Trophy className="h-4 w-4" />
-            Leaderboard
+          <Link to="/study-techniques" className="flex items-center gap-1 text-sm font-medium">
+            <Brain className="h-4 w-4" />
+            Study
+          </Link>
+          <Link to="/trends" className="flex items-center gap-1 text-sm font-medium">
+            <Newspaper className="h-4 w-4" />
+            Trends
           </Link>
         </nav>
         

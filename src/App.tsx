@@ -14,6 +14,9 @@ import ForumPage from "./pages/ForumPage";
 import MentorshipPage from "./pages/MentorshipPage";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import BlogPage from "./pages/BlogPage";
+import StudyTechniquesPage from "./pages/StudyTechniquesPage";
+import TrendsPage from "./pages/TrendsPage";
+import PersonalizedLearningPage from "./pages/PersonalizedLearningPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +38,9 @@ const App = () => (
             <Route path="mentorship" element={<MentorshipPage />} />
             <Route path="leaderboard" element={<LeaderboardPage />} />
             <Route path="blog" element={<BlogPage />} />
+            <Route path="study-techniques" element={<StudyTechniquesPage />} />
+            <Route path="trends" element={<TrendsPage />} />
+            <Route path="personalized-learning" element={<PersonalizedLearningPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

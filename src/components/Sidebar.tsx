@@ -2,11 +2,16 @@
 import { 
   BarChart3, 
   BookOpen, 
+  Brain,
+  Briefcase,
   Calendar, 
   Code, 
   GraduationCap, 
   Home, 
+  Lightbulb,
   MessageSquare, 
+  MousePointerClick,
+  Newspaper,
   PenSquare,
   TrendingUp, 
   Trophy,
@@ -72,6 +77,20 @@ const Sidebar = () => {
             <Code className="h-4 w-4" />
             Skills
           </Link>
+          <Link 
+            to="/study-techniques" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <Brain className="h-4 w-4" />
+            Study Techniques
+          </Link>
+          <Link 
+            to="/personalized-learning" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <MousePointerClick className="h-4 w-4" />
+            Personalized Learning
+          </Link>
         </nav>
       </div>
       
@@ -96,7 +115,6 @@ const Sidebar = () => {
           </Link>
           <Link 
             to="/leaderboard"
-
             className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
           >
             <Trophy className="h-4 w-4" />
@@ -114,9 +132,16 @@ const Sidebar = () => {
       
       <div className="space-y-2">
         <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Stats & Analytics
+          Insights
         </h3>
         <nav className="flex flex-col space-y-1">
+          <Link 
+            to="/trends" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <Newspaper className="h-4 w-4" />
+            Industry Trends
+          </Link>
           <Link 
             to="/stats" 
             className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"

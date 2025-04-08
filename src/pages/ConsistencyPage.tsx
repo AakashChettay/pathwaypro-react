@@ -1,10 +1,9 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Award, Bell, Calendar, CheckCircle, Clock, Fire, Info, Trophy } from "lucide-react";
+import { Award, Bell, Calendar, CheckCircle, Clock, Flame, Info, Trophy } from "lucide-react";
 import StreakCalendar from "@/components/StreakCalendar";
 
 const ConsistencyPage = () => {
@@ -186,7 +185,7 @@ const ConsistencyPage = () => {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Fire className="h-5 w-5 text-primary" />
+                <Flame className="h-5 w-5 text-primary" />
                 <CardTitle>Streak Stats</CardTitle>
               </div>
             </CardHeader>
@@ -251,7 +250,7 @@ const ConsistencyPage = () => {
                       <span className="font-medium text-sm">{student.name}</span>
                     </div>
                     <div className="flex items-center gap-1 text-sm">
-                      <Fire className="h-4 w-4 text-orange-500" />
+                      <Flame className="h-4 w-4 text-orange-500" />
                       <span>{student.streak} days</span>
                     </div>
                   </div>

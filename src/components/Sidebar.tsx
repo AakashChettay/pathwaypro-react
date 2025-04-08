@@ -13,13 +13,18 @@ import {
   MousePointerClick,
   Newspaper,
   PenSquare,
+  Settings,
+  ShieldCheck,
   TrendingUp, 
   Trophy,
   Users 
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Sidebar = () => {
+  const { isAdmin } = useAuth();
+  
   return (
     <aside className="hidden md:flex flex-col w-64 border-r p-4 space-y-8">
       <div className="space-y-2">
@@ -151,6 +156,37 @@ const Sidebar = () => {
           </Link>
         </nav>
       </div>
+      
+      {isAdmin && (
+        <div className="space-y-2">
+          <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Administration
+          </h3>
+          <nav className="flex flex-col space-y-1">
+            <Link 
+              to="/admin" 
+              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-primary hover:bg-primary/10"
+            >
+              <ShieldCheck className="h-4 w-4" />
+              Admin Dashboard
+            </Link>
+            <Link 
+              to="/admin/users" 
+              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+            >
+              <Users className="h-4 w-4" />
+              User Management
+            </Link>
+            <Link 
+              to="/admin/settings" 
+              className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+            >
+              <Settings className="h-4 w-4" />
+              System Settings
+            </Link>
+          </nav>
+        </div>
+      )}
       
       <div className="mt-auto pt-4 border-t">
         <div className="rounded-md bg-muted p-3">

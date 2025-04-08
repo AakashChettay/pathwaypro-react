@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -5,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Award, Bell, Calendar, CheckCircle, Clock, Flame, Info, Trophy } from "lucide-react";
 import StreakCalendar from "@/components/StreakCalendar";
+import { Switch } from "@/components/ui/switch";
+import { Progress } from "@/components/ui/progress";
+import { toast } from "sonner";
 
 const ConsistencyPage = () => {
   // Mock state for tasks
@@ -34,6 +38,46 @@ const ConsistencyPage = () => {
     setDailyTasks(dailyTasks.map(task => 
       task.id === taskId ? { ...task, completed: !task.completed } : task
     ));
+    
+    // Show toast notification
+    const task = dailyTasks.find(t => t.id === taskId);
+    if (task) {
+      if (!task.completed) {
+        toast.success("Task completed! Keep up the good work!");
+      } else {
+        toast.info("Task marked as incomplete");
+      }
+    }
+  };
+  
+  // Mark all tasks as complete
+  const markAllComplete = () => {
+    const incompleteTasksCount = dailyTasks.filter(task => !task.completed).length;
+    
+    setDailyTasks(dailyTasks.map(task => ({ ...task, completed: true })));
+    
+    if (incompleteTasksCount > 0) {
+      toast.success(`All ${incompleteTasksCount} remaining tasks completed!`);
+    } else {
+      toast.info("All tasks are already complete!");
+    }
+  };
+  
+  // Calculate completion percentage
+  const completionPercentage = Math.round(
+    (dailyTasks.filter(task => task.completed).length / dailyTasks.length) * 100
+  );
+
+  // Auto-reminder state
+  const [reminderEnabled, setReminderEnabled] = useState(false);
+  
+  const toggleReminder = () => {
+    setReminderEnabled(!reminderEnabled);
+    if (!reminderEnabled) {
+      toast.success("Daily reminders enabled at 9:00 AM");
+    } else {
+      toast.info("Daily reminders disabled");
+    }
   };
 
   return (
@@ -54,10 +98,14 @@ const ConsistencyPage = () => {
                   <Calendar className="h-5 w-5 text-primary" />
                   <CardTitle>Your Streak</CardTitle>
                 </div>
-                <Button variant="outline" size="sm" className="gap-1">
-                  <Bell className="h-4 w-4" />
-                  Set Reminder
-                </Button>
+                <div className="flex items-center gap-2">
+                  <Switch 
+                    checked={reminderEnabled} 
+                    onCheckedChange={toggleReminder} 
+                    id="reminder-switch"
+                  />
+                  <span className="text-sm">Daily Reminder</span>
+                </div>
               </div>
               <CardDescription>Keep your learning streak alive by completing daily tasks</CardDescription>
             </CardHeader>
@@ -90,7 +138,10 @@ const ConsistencyPage = () => {
                       {monthlyStreakData.map((isActive, i) => (
                         <div 
                           key={i} 
-                          className={`streak-dot ${isActive ? "streak-dot-active" : "streak-dot-inactive"}`}
+                          className={`w-8 h-8 rounded-full flex items-center justify-center text-xs
+                            ${isActive 
+                              ? "bg-primary text-primary-foreground animate-in fade-in-50" 
+                              : "bg-muted text-muted-foreground"}`}
                         >
                           {isActive && "✓"}
                         </div>
@@ -122,10 +173,18 @@ const ConsistencyPage = () => {
               <CardDescription>Complete these tasks to maintain your streak</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              <div className="w-full mb-4">
+                <div className="flex justify-between mb-2 text-sm">
+                  <span>Daily Progress</span>
+                  <span>{completionPercentage}% Complete</span>
+                </div>
+                <Progress value={completionPercentage} className="h-2" />
+              </div>
+              
               {dailyTasks.map((task) => (
                 <div 
                   key={task.id} 
-                  className="flex items-center justify-between p-3 border rounded-md"
+                  className="flex items-center justify-between p-3 border rounded-md hover:bg-muted/50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
                     <Button 
@@ -144,7 +203,11 @@ const ConsistencyPage = () => {
                 </div>
               ))}
               
-              <Button className="w-full" disabled={dailyTasks.every(task => task.completed)}>
+              <Button 
+                className="w-full" 
+                disabled={dailyTasks.every(task => task.completed)}
+                onClick={markAllComplete}
+              >
                 Mark All Complete
               </Button>
             </CardContent>

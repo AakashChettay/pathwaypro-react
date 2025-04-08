@@ -47,10 +47,10 @@ const StreakCalendar = ({
           <div 
             key={i} 
             className={cn(
-              "streak-dot",
+              "w-8 h-8 rounded-full flex items-center justify-center text-xs",
               isActive 
-                ? "streak-dot-active animate-streak-grow" 
-                : "streak-dot-inactive"
+                ? "bg-primary text-primary-foreground animate-in fade-in-50" 
+                : "bg-muted text-muted-foreground"
             )}
           >
             {isActive && "✓"}

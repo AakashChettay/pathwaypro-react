@@ -6,8 +6,10 @@ import {
   Code, 
   GraduationCap, 
   Home, 
-  MessagesSquare, 
+  MessageSquare, 
+  PenSquare,
   TrendingUp, 
+  Trophy,
   Users 
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -75,7 +77,44 @@ const Sidebar = () => {
       
       <div className="space-y-2">
         <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Stats & Community
+          Community
+        </h3>
+        <nav className="flex flex-col space-y-1">
+          <Link 
+            to="/forum" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <MessageSquare className="h-4 w-4" />
+            Q&A Forum
+          </Link>
+          <Link 
+            to="/mentorship" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <Users className="h-4 w-4" />
+            Alumni Mentorship
+          </Link>
+          <Link 
+            to="/leaderboard"
+
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <Trophy className="h-4 w-4" />
+            Leaderboard
+          </Link>
+          <Link 
+            to="/blog" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <PenSquare className="h-4 w-4" />
+            Student Articles
+          </Link>
+        </nav>
+      </div>
+      
+      <div className="space-y-2">
+        <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+          Stats & Analytics
         </h3>
         <nav className="flex flex-col space-y-1">
           <Link 
@@ -85,14 +124,6 @@ const Sidebar = () => {
             <BarChart3 className="h-4 w-4" />
             Statistics
           </Link>
-          <div className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground">
-            <MessagesSquare className="h-4 w-4" />
-            Forum (Coming Soon)
-          </div>
-          <div className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground">
-            <Users className="h-4 w-4" />
-            Mentorship (Coming Soon)
-          </div>
         </nav>
       </div>
       

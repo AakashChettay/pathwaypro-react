@@ -10,6 +10,10 @@ import RoadmapPage from "./pages/RoadmapPage";
 import ConsistencyPage from "./pages/ConsistencyPage";
 import CoursesPage from "./pages/CoursesPage";
 import PlacementPage from "./pages/PlacementPage";
+import ForumPage from "./pages/ForumPage";
+import MentorshipPage from "./pages/MentorshipPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
+import BlogPage from "./pages/BlogPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +31,10 @@ const App = () => (
             <Route path="consistency" element={<ConsistencyPage />} />
             <Route path="courses" element={<CoursesPage />} />
             <Route path="placement" element={<PlacementPage />} />
+            <Route path="forum" element={<ForumPage />} />
+            <Route path="mentorship" element={<MentorshipPage />} />
+            <Route path="leaderboard" element={<LeaderboardPage />} />
+            <Route path="blog" element={<BlogPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

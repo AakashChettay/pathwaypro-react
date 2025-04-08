@@ -159,7 +159,7 @@ const PersonalizedLearningPage = () => {
             },
             {
               title: "Automate the Boring Stuff with Python",
-              type: "Book",
+              type: "Course",
               platform: "No Starch Press",
               link: "https://automatetheboringstuff.com/",
               estimated: "20 hours"
@@ -420,7 +420,7 @@ const PersonalizedLearningPage = () => {
             },
             {
               title: "Building Micro-Frontends",
-              type: "Book",
+              type: "Article",
               platform: "O'Reilly",
               link: "https://www.oreilly.com/",
               estimated: "20 hours"

@@ -1,4 +1,3 @@
-
 import { 
   BarChart3, 
   BookOpen, 
@@ -52,6 +51,13 @@ const Sidebar = () => {
           >
             <Calendar className="h-4 w-4" />
             Consistency Tracker
+          </Link>
+          <Link 
+            to="/statistics" 
+            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
+          >
+            <BarChart3 className="h-4 w-4" />
+            Statistics
           </Link>
         </nav>
       </div>
@@ -146,13 +152,6 @@ const Sidebar = () => {
           >
             <Newspaper className="h-4 w-4" />
             Industry Trends
-          </Link>
-          <Link 
-            to="/stats" 
-            className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
-          >
-            <BarChart3 className="h-4 w-4" />
-            Statistics
           </Link>
         </nav>
       </div>

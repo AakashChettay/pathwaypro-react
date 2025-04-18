@@ -24,6 +24,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import UserManagement from "./pages/admin/UserManagement";
 import SystemSettings from "./pages/admin/SystemSettings";
 import NotFound from "./pages/NotFound";
+import SkillsPage from "./pages/SkillsPage";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
                 <Route path="study-techniques" element={<StudyTechniquesPage />} />
                 <Route path="trends" element={<TrendsPage />} />
                 <Route path="personalized-learning" element={<PersonalizedLearningPage />} />
+                <Route path="skills" element={<SkillsPage />} />
               </Route>
             </Route>
 
